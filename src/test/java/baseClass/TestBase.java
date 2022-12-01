@@ -15,35 +15,32 @@ public class TestBase {
 	
 	public static WebDriver driver;
 	public static Properties prop;
+
 	
-	public TestBase() {
+	public static void Initialization() {
 		
 		
 		try {
 			prop = new Properties();
-			FileInputStream fis = new FileInputStream("/Users/joshi/eclipse-workspace-vaish/DSAlgo/src/test/java/configurationFile/config.properties");
+			FileInputStream fis = new FileInputStream("Configuration/config.properties");
 				prop.load(fis);
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
 			e.printStackTrace();
 		}
-	
-	}
-	
-	public static void Initialization() {
 		
 		String browserName = prop.getProperty("browser");
 		
 		if(browserName.equalsIgnoreCase("chrome")) {
 			
-			System.setProperty("webdriver.chrome.driver","/Users/joshi/eclipse-workspace-vaish/DSAlgo/src/test/resources/Driver/chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver","src/test/resources/Driver/chromedriver.exe");
 			driver=new ChromeDriver();
 		}
 		
 		else if(browserName.equalsIgnoreCase("firefox")) {
 			
-			System.setProperty("webdriver.gecko.driver","/Users/joshi/eclipse-workspace-vaish/DSAlgo/src/test/resources/Driver/geckodriver.exe");
+			System.setProperty("webdriver.gecko.driver","src/test/resources/Driver/geckodriver.exe");
 			driver=new FirefoxDriver();
 		}
 		
@@ -59,6 +56,12 @@ public class TestBase {
 		
 		driver.get(prop.getProperty("url"));
 	}
+	
+	public static void teardown() {
+		driver.close();
+		driver.quit();
+	}
+	
 	
 
 }

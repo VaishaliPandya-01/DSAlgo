@@ -1,6 +1,5 @@
 package stepDefinations;
 
-import org.testng.asserts.SoftAssert;
 
 import baseClass.TestBase;
 import io.cucumber.java.en.And;
@@ -77,31 +76,11 @@ public class RegistrationSD extends TestBase{
 	
 	@Then("if registration is sucessful user should be redirected to homepage or error message should be display")
 	public void if_registration_is_sucessful_user_should_be_redirected_to_homepage_or_error_message_should_be_display() {
-//		try {
-//			homePage.validateHomePage();
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-		String msg = registration.RegistrationValidationMsg();
-		SoftAssert SA = new SoftAssert();
-		boolean actualErrorMessage= false;
-		
-		if(msg.contains("You are logged in")) {
-			
-			actualErrorMessage =true;
-		SA.assertTrue(actualErrorMessage);
-		System.out.println(msg);
-		SA.assertAll();
-		}
-		
-		else {
-			
-			actualErrorMessage =false;
-			SA.assertTrue(actualErrorMessage);
-			System.out.println(msg);
-			SA.assertAll();
-		}
-		driver.close();		
+		try {
+			homePage.validateHomePage();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
 	}
 }
