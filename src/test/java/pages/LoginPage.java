@@ -1,10 +1,9 @@
 package pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.asserts.SoftAssert;
-import org.junit.Assert;
 
 import baseClass.TestBase;
 
@@ -56,10 +55,10 @@ public class LoginPage extends TestBase {
 		String ExpectedErrorMessage = "You are logged in";
 		String actualErrorMessage = Message.getText();
 
-		SoftAssert SA = new SoftAssert();
-		SA.assertEquals(actualErrorMessage,ExpectedErrorMessage);
+		
+		Assert.assertEquals(ExpectedErrorMessage,actualErrorMessage);
 		System.out.println(actualErrorMessage);
-		SA.assertAll();
+		
 
 	}
 

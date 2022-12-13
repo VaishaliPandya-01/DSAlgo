@@ -510,7 +510,7 @@ public class DataStructureSD extends TestBase{
 	@And("clicks on SignOut btn")
 	public void clicks_on_SignOut_btn() {
 		homePage.SignOutBtn();
-		driver.close();
+		
 	}
 
 }

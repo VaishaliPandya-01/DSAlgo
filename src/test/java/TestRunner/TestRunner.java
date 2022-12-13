@@ -12,7 +12,7 @@ import io.qameta.allure.Attachment;
 
 
 @CucumberOptions(features ={"src/test/resources/features"}, 
-glue = {"stepDefinations"}, 
+glue = {"stepDefinations","Hooks"}, 
 tags= {"@A or @B or @C"},
 monochrome = true, 
 plugin = {"pretty",

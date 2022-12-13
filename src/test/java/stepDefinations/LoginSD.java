@@ -41,7 +41,7 @@ public class LoginSD extends TestBase{
     @Then("error message should be displayed")
     public void error_message_should_be_displayed () {
     	homePage.NotLoggedInMsg();
-    	driver.close();
+    	
     }
 	
 	@When("user clicks on sign In link")
@@ -76,6 +76,6 @@ public class LoginSD extends TestBase{
 //			e.printStackTrace();
 //		}
 		login.LoginValidationMsg();
-		driver.close();
+		
 	}
 }
